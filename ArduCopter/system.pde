@@ -146,13 +146,13 @@ static void init_ardupilot()
     ap.usb_connected = true;
     check_usb_mux();
 
-#if CONFIG_HAL_BOARD != HAL_BOARD_APM2
+//#if CONFIG_HAL_BOARD != HAL_BOARD_APM2
     // we have a 2nd serial port for telemetry on all boards except
     // APM2. We actually do have one on APM2 but it isn't necessary as
     // a MUX is used
     hal.uartC->begin(map_baudrate(g.serial3_baud, SERIAL3_BAUD), 128, 128);
     gcs3.init(hal.uartC);
-#endif
+//#endif
 
     // identify ourselves correctly with the ground station
     mavlink_system.sysid = g.sysid_this_mav;
